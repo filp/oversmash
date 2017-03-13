@@ -1,0 +1,28 @@
+{
+  "name": "oversmash",
+  "version": "0.1.0",
+  "description": "API wrapper for Blizzard's Overwatch player data",
+  "main": "./build/index.js",
+  "scripts": {
+    "start": "babel-node lib/index.js",
+    "build": "rm -rf ./build && babel lib -d build",
+    "prepublish": "npm run build"
+  },
+  "dependencies": {
+    "cheerio": "^0.22.0",
+    "debug": "^2.6.2",
+    "request": "^2.81.0",
+    "request-promise": "^4.1.1",
+    "url-join": "^1.1.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.11.4",
+    "babel-preset-node6": "^11.0.0",
+    "babel-preset-stage-3": "^6.17.0",
+    "babel-core": "^6.18.2",
+    "eslint": "^3.12.0",
+    "eslint-config-standard": "^6.2.1",
+    "eslint-plugin-promise": "^3.4.0",
+    "eslint-plugin-standard": "^2.0.1"
+  }
+}
