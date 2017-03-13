@@ -1,6 +1,6 @@
 {
   "name": "oversmash",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "API wrapper for Blizzard's Overwatch player data",
   "main": "./build/index.js",
   "scripts": {
