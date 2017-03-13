@@ -13,6 +13,7 @@ Please also keep in mind there is no builtin rate-limiting support, so it's on y
 - Ability to retrieve detailed stats for a player, for a given region and platform
   - Includes **all** stats available on playoverwatch.com
   - Stats are retrieved and grouped automatically per career type (quickplay/competitive), hero, and group (e.g combat, awards, etc)
+  - Supports new heroes and new types of stats as they're added, no changes required to the code
 - Minimalist and straightforward API that only handles retrieving the data, everything else is up to you
 
 ## Usage
