@@ -1,4 +1,4 @@
-# oversmash
+# oversmash [![npm version](https://badge.fury.io/js/oversmash.svg)](https://badge.fury.io/js/oversmash)
 
 API wrapper for Blizzard's Overwatch player stats. Uses promises.
 
