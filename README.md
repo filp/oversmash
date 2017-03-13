@@ -86,7 +86,7 @@ async function main () {
 `oversmash` uses [debug](https://github.com/visionmedia/debug). Run your code calling oversmash with
 `DEBUG=oversmash` to enable debug logging
 
-## 🐝 🐝 🐝
+## Stuff 🐝 🐝 🐝
 
 See [`LICENSE.md`](/LICENSE.md) for license information
 
