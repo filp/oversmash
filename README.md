@@ -81,6 +81,25 @@ async function main () {
   }
 }
 ```
+### `oversmash()` options
+
+The following options are configurable.
+
+```js
+{
+  defaultRegion: 'us',
+  defaultPlatform: 'pc',
+  accountIdentityRegex: /^\/career\/([\w]+)\/([\w]+)\/.+$/,
+  requestOptions: {
+    baseUrl: 'https://playoverwatch.com/en-us',
+    headers: {
+      'User-Agent': 'https://github.com/filp/oversmash (hi jeff)'
+    }
+  }
+}
+```
+
+`requestOptions` are passed directly to `request.defaults` on [request](https://github.com/request/request)
 
 ## Debugging
 
