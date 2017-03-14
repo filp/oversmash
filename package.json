@@ -1,6 +1,6 @@
 {
   "name": "oversmash",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "API wrapper for Blizzard's Overwatch player data",
   "main": "./build/index.js",
   "scripts": {
@@ -11,6 +11,7 @@
   "dependencies": {
     "cheerio": "^0.22.0",
     "debug": "^2.6.2",
+    "no-case": "^2.3.1",
     "request": "^2.81.0",
     "request-promise": "^4.1.1",
     "url-join": "^1.1.0"

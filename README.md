@@ -16,7 +16,8 @@ Please also keep in mind there is no builtin rate-limiting support, so it's on y
   - Includes full list of achievements, with details on which the player has completed
   - Stats are retrieved and grouped automatically per career type (quickplay/competitive), hero, and group (e.g combat, awards, etc)
   - Supports new heroes and new types of stats as they're added, no changes required to the code
-- Minimalist and straightforward API that only handles retrieving the data, everything else is up to you
+- Supports normalizing names and values (e.g converting achievement names to `snake_case`, properly handling floating-point values in stats, etc)
+- Minimalist and straightforward API
 
 ## Usage
 
@@ -51,37 +52,40 @@ async function main () {
   const playerStats = await api.playerStats('bob-12345')
   console.log(playerStats)
 
-  // Output (shortened for brevity):
   // { name: 'bob-12345',
-  //   region: 'eu',
+  //   region: 'us',
   //   platform: 'pc',
   //   stats:
-  //    { competitiveRank: '12345',
-  //      achievements: [{ name: 'xyz', achieved: true }, ...],
+  //    { competitiveRank: 3700,
+  //      achievements:
+  //       [ { name: 'centenary', achieved: true },
+  //         { name: 'level_10', achieved: true },
+  //         { name: 'level_25', achieved: true },
+  //         { name: 'level_50', achieved: true },
+  //         { name: 'undying', achieved: true },
+  //         { name: 'survival_expert', achieved: true },
+  //         /* ... etc ... */],
   //      quickplay:
-  //       { all:
+  //       { all: { /* avg stats across all characters */ }
+  //         reaper:
   //          { combat:
-  //             { 'Melee Final Blows': '190',
-  //               'Solo Kills': '2,913',
-  //               'Objective Kills': '6,579',
-  //               'Final Blows': '9,493',
-  //               'Damage Done': '6,868,890',
-  //               'Eliminations': '18,396',
-  //               'Environmental Kills': '83',
-  //               'Multikills': '155' },
+  //             { melee_final_blows: 190,
+  //               solo_kills: 2922,
+  //               objective_kills: 6592,
+  //               final_blows: 9519,
+  //               damage_done: 6897,
+  //               eliminations: 18456,
+  //               environmental_kills: 83,
+  //               multikills: 155 },
   //            assists:
-  //             { 'Healing Done': '1,083,825',
-  //               'Recon Assists': '25',
-  //               'Teleporter Pads Destroyed': '18' },
-  //            best: { ... },
-  //            average: { ... },
-  //            awards: { ... },
-  //            game:
-  //             { ... },
-  //            misc:
-  //             { ... } },
-  //         reaper: { ... } },
-  //       competitive: { ... } }
+  //             { healing_done: 1102,
+  //               recon_assists: 25,
+  //               teleporter_pads_destroyed: 18 },
+  //            best:
+  //             { eliminations_most_in_game: 44,
+  //               final_blows_most_in_game: 27,
+  //               damage_done_most_in_game: 17491,
+  //   /* ... etc ... */
   }
 }
 ```
@@ -91,6 +95,13 @@ The following options are configurable.
 
 ```js
 {
+  // Convert things like achievement names to snake_case
+  normalizeNames: true,
+  // Convert values to their correct format, e.g numbers in stats to JS numbers
+  // When disabled, all stats values are strings as extracted from Blizzard
+  normalizeValues: true,
+  // Convert percentage values to ints, e.g '32%' to 32
+  percentsToInts: true,
   defaultRegion: 'us',
   defaultPlatform: 'pc',
   accountIdentityRegex: /^\/career\/([\w]+)\/([\w]+)\/.+$/,
