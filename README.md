@@ -37,7 +37,7 @@ import oversmash from 'oversmash'
 const ow = oversmash()
 
 // Get basic details about a user, including their platform/region accounts
-api.player('bob-12345').then(player => {
+ow.player('bob-12345').then(player => {
   console.log(player)
 })
 
@@ -53,7 +53,7 @@ api.player('bob-12345').then(player => {
 // Get detailed stats about a user (for a specific region), including
 // achievements unlocked, per-career and per-hero stats, and their
 // current competitive rank
-api.playerStats('bob-12345', 'us', 'pc').then(player => {
+ow.playerStats('bob-12345', 'us', 'pc').then(player => {
   console.log(player)
 })
 
