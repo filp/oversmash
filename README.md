@@ -118,7 +118,7 @@ The following options are configurable.
 }
 ```
 
-`requestOptions` are passed directly to `request.defaults` on [request](https://github.com/request/request)
+`requestOptions` are passed directly to `axios.create` on [axios](https://github.com/mzabriskie/axios)
 
 ## Debugging
 
