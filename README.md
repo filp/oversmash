@@ -110,7 +110,7 @@ The following options are configurable.
   defaultPlatform: 'pc',
   accountIdentityRegex: /^\/career\/([\w]+)\/([\w]+)\/.+$/,
   requestOptions: {
-    baseUrl: 'https://playoverwatch.com/en-us',
+    baseURL: 'https://playoverwatch.com/en-us',
     headers: {
       'User-Agent': 'https://github.com/filp/oversmash (hi jeff)'
     }
