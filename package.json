@@ -8,6 +8,7 @@
   "keywords": ["overwatch", "gaming", "api", "client", "scraper", "oversmash"],
   "scripts": {
     "start": "babel-node lib/index.js",
+    "test": "babel-node tests/test_comfy.js",
     "build": "rm -rf ./build && babel lib -d build",
     "prepublish": "npm run build"
   },
