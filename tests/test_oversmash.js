@@ -1,6 +1,3 @@
-// Enable debug logging through the debug package
-process.env['DEBUG'] = 'oversmash'
-
 import assert from 'assert'
 import oversmash from '../lib'
 
