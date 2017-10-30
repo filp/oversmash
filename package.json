@@ -1,11 +1,18 @@
 {
   "name": "oversmash",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "license": "MIT",
   "homepage": "https://github.com/filp/oversmash",
   "description": "API wrapper for Blizzard's Overwatch player data",
   "main": "./build/index.js",
-  "keywords": ["overwatch", "gaming", "api", "client", "scraper", "oversmash"],
+  "keywords": [
+    "overwatch",
+    "gaming",
+    "api",
+    "client",
+    "scraper",
+    "oversmash"
+  ],
   "scripts": {
     "start": "babel-node lib/index.js",
     "test": "DEBUG=oversmash babel-node tests/test_oversmash.js",
@@ -13,6 +20,7 @@
     "prepublish": "npm run build"
   },
   "dependencies": {
+    "camelcase": "^4.1.0",
     "cheerio": "^0.22.0",
     "debug": "^2.6.2",
     "no-case": "^2.3.1",

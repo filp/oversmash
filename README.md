@@ -101,9 +101,15 @@ The following options are configurable.
 {
   // Convert things like achievement names to snake_case
   normalizeNames: true,
+
+  // When set to snake, names are normalized as snake_case; when set to camel,
+  // names are lowerCamelCase. Only applies if normalizeNames is enabled.
+  normalizeNamesAs: 'snake' || 'camel',
+
   // Convert values to their correct format, e.g numbers in stats to JS numbers
   // When disabled, all stats values are strings as extracted from Blizzard
   normalizeValues: true,
+
   // Convert percentage values to ints, e.g '32%' to 32
   percentsToInts: true,
   defaultRegion: 'us',
