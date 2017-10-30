@@ -20,6 +20,9 @@ async function testPlayerStats (ow) {
 
   // Make sure we successfully extracted the competitive rank
   assert(p.stats.competitiveRank > 0)
+
+  // Make sure diacritics replacement is working as intended:
+  assert(p.stats.competitive.torbjorn.hero.torbjorn_kills)
 }
 
 async function runTests () {
