@@ -6,6 +6,8 @@ Blizzard does not expose an official API, so this library relies partially on sc
 
 Please also keep in mind there is no builtin rate-limiting support, so it's on you to use the library responsibly.
 
+**Note: See [CHANGELOG.MD](/CHANGELOG.md) for change details**
+
 ## Features
 
 - Ability to retrieve basic user information, such as name, portrait, level and accounts
@@ -36,7 +38,8 @@ import oversmash from 'oversmash'
 // object (see below)
 const ow = oversmash()
 
-// Get basic details about a user, including their platform/region accounts
+// Get basic details about a user, including their platform/region accounts.
+//
 ow.player('bob-12345').then(player => {
   console.log(player)
 })
@@ -47,8 +50,7 @@ ow.player('bob-12345').then(player => {
 //    [ { level: 440,
 //        portrait: 'https://blzgdapipro-a.akamaihd.net/game/unlocks/xyz.png',
 //        displayName: 'bob#12345',
-//        platform: 'pc',
-//        region: 'eu' } ] }
+//        platform: 'pc' } ] }
 
 // Get detailed stats about a user (for a specific region), including
 // achievements unlocked, per-career and per-hero stats, and their
@@ -115,6 +117,7 @@ The following options are configurable.
   defaultRegion: 'us',
   defaultPlatform: 'pc',
   accountIdentityRegex: /^\/career\/([\w]+)\/([\w]+)\/.+$/,
+
   requestOptions: {
     baseURL: 'https://playoverwatch.com/en-us',
     headers: {

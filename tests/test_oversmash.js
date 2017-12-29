@@ -8,7 +8,7 @@ async function testPlayerProfile (ow) {
   const p = await ow.player('HaventMetYou-2451')
 
   assert.equal(p.name, 'HaventMetYou-2451')
-  assert.equal(p.accounts.length, 3)
+  assert.equal(p.accounts.length, 1)
 }
 
 async function testPlayerStats (ow) {
@@ -22,7 +22,7 @@ async function testPlayerStats (ow) {
   assert(p.stats.competitiveRank > 0)
 
   // Make sure diacritics replacement is working as intended:
-  assert(p.stats.competitive.torbjorn.hero.torbjorn_kills)
+  assert(p.stats.competitive.lucio.combat.all_damage_done)
 }
 
 async function runTests () {
