@@ -114,9 +114,15 @@ The following options are configurable.
 
   // Convert percentage values to ints, e.g '32%' to 32
   percentsToInts: true,
+
+  // Default values to use if platform & region are not passed to the playerStats
+  // method.
   defaultRegion: 'us',
   defaultPlatform: 'pc',
-  accountIdentityRegex: /^\/career\/([\w]+)\/([\w]+)\/.+$/,
+
+  // Used to extract account details from the career link returned from the
+  // playoverwatch API
+  accountIdentityRegex: /^\/career\/([\w]+)\/.+$/,
 
   requestOptions: {
     baseURL: 'https://playoverwatch.com/en-us',
