@@ -1,6 +1,6 @@
 {
   "name": "oversmash",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "license": "MIT",
   "homepage": "https://github.com/filp/oversmash",
   "description": "API wrapper for Blizzard's Overwatch player data",
