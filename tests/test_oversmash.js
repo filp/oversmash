@@ -5,24 +5,21 @@ import oversmash from '../lib'
 // and would rather not be here, please open an issue!
 
 async function testPlayerProfile (ow) {
-  const p = await ow.player('HaventMetYou-2451')
+  const p = await ow.player('BOB-29739')
 
-  assert.equal(p.name, 'HaventMetYou-2451')
+  assert.equal(p.name, 'BOB-29739')
   assert.equal(p.accounts.length, 1)
 }
 
 async function testPlayerStats (ow) {
-  const p = await ow.playerStats('HaventMetYou-2451', 'us', 'pc')
+  const p = await ow.playerStats('BOB-29739', 'pc')
 
-  assert.equal(p.name, 'HaventMetYou-2451')
-  assert.equal(p.region, 'us')
+  assert.equal(p.name, 'BOB-29739')
   assert.equal(p.platform, 'pc')
 
-  // Make sure we successfully extracted the competitive rank
-  assert(p.stats.competitiveRank > 0)
-
   // Make sure diacritics replacement is working as intended:
-  assert(p.stats.competitive.lucio.combat.all_damage_done)
+  assert(p.stats.competitiveRank > 0)
+  assert(p.stats.quickplay.lucio.combat.all_damage_done > 0)
 }
 
 async function runTests () {

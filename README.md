@@ -11,7 +11,7 @@ Please also keep in mind there is no builtin rate-limiting support, so it's on y
 ## Features
 
 - Ability to retrieve basic user information, such as name, portrait, level and accounts
-  - Correctly identifies the platform and region for each account
+  - Correctly identifies the platform for each account
 - Ability to retrieve detailed stats for a player, for a given region and platform
   - Includes **all** stats available on playoverwatch.com
   - Includes the player's current competitive rank
@@ -38,7 +38,7 @@ import oversmash from 'oversmash'
 // object (see below)
 const ow = oversmash()
 
-// Get basic details about a user, including their platform/region accounts.
+// Get basic details about a user, including their platform accounts.
 //
 ow.player('bob-12345').then(player => {
   console.log(player)
@@ -52,10 +52,10 @@ ow.player('bob-12345').then(player => {
 //        displayName: 'bob#12345',
 //        platform: 'pc' } ] }
 
-// Get detailed stats about a user (for a specific region), including
+// Get detailed stats about a user, including
 // achievements unlocked, per-career and per-hero stats, and their
 // current competitive rank
-ow.playerStats('bob-12345', 'us', 'pc').then(player => {
+ow.playerStats('bob-12345', 'pc').then(player => {
   console.log(player)
 })
 
@@ -115,14 +115,14 @@ The following options are configurable.
   // Convert percentage values to ints, e.g '32%' to 32
   percentsToInts: true,
 
-  // Default values to use if platform & region are not passed to the playerStats
-  // method.
-  defaultRegion: 'us',
-  defaultPlatform: 'pc',
+  // The url template used to build the full portrait url, where the player's Overwatch
+  // career icon/profile image is available.
+  //
+  // %s is replaced with the value from the player's profile.
+  portraitUrlTemplate: 'https://d1u1mce87gyfbn.cloudfront.net/game/unlocks/%s.png',
 
-  // Used to extract account details from the career link returned from the
-  // playoverwatch API
-  accountIdentityRegex: /^\/career\/([\w]+)\/.+$/,
+  // Default platform if none is specified in the options
+  defaultPlatform: 'pc',
 
   requestOptions: {
     baseURL: 'https://playoverwatch.com/en-us',
