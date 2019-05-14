@@ -5,7 +5,7 @@ import oversmash from '../lib'
 // and would rather not be here, please open an issue!
 
 async function testPlayerProfile (ow) {
-  const p = await ow.player('BOB-29739')
+  const p = await ow.player('BOB#29739')
 
   assert.equal(p.name, 'BOB-29739')
   assert.equal(p.accounts.length, 1)
