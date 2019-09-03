@@ -5,16 +5,16 @@ import oversmash from '../lib'
 // and would rather not be here, please open an issue!
 
 async function testPlayerProfile (ow) {
-  const p = await ow.player('BOB#29739')
+  const p = await ow.player('FATCOTTON420#2476')
 
-  assert.equal(p.name, 'BOB-29739')
+  assert.equal(p.name, 'FATCOTTON420-2476')
   assert.equal(p.accounts.length, 1)
 }
 
 async function testPlayerStats (ow) {
-  const p = await ow.playerStats('BOB-29739', 'pc')
+  const p = await ow.playerStats('FATCOTTON420#2476', 'pc')
 
-  assert.equal(p.name, 'BOB-29739')
+  assert.equal(p.name, 'FATCOTTON420#2476')
   assert.equal(p.platform, 'pc')
 
   // Make sure diacritics replacement is working as intended:
