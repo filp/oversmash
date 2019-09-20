@@ -1,3 +1,24 @@
+# 1.5.0
+
+1.5.0
+
+- Adds support for role queue ranks in `playerStats` method
+
+```json
+{
+  stats: {
+    competitiveRank: {
+      support: 1234,
+      tank: 1234,
+      damage: 1234
+    }
+  }
+}
+```
+
+- Adds `endorsementLevel` to `playerStats`
+- Adds `gamesWon` to `playerStats`
+
 # 1.4.0 & 1.4.1(May 14th 2019)
 
 1.4.0
