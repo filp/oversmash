@@ -1,3 +1,10 @@
+# 1.5.2
+
+1.5.2
+
+- Normalizes name handling on all methods, making the `#` sign mandatory
+- Adds `nameEscaped` and `nameEscapedUrl` to method return values as appropriate, with the escaped values used internally
+
 # 1.5.1
 
 1.5.1 

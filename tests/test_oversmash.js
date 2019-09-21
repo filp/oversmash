@@ -40,16 +40,19 @@ function compareToSnapshot (snapshot, data) {
 async function testPlayerProfile (ow, snapshot) {
   const p = await ow.player('FATCOTTON420#2476')
 
-  assert.equal(p.name, 'FATCOTTON420-2476')
+  assert.equal(p.name, 'FATCOTTON420#2476')
+  assert.equal(p.nameEscaped, 'FATCOTTON420-2476')
+  assert.equal(p.nameEscapedUrl, 'FATCOTTON420%232476')
   assert.equal(p.accounts.length, 1)
 
   compareToSnapshot(snapshot, p)
 }
 
 async function testPlayerStats (ow, snapshot) {
-  const p = await ow.playerStats('FATCOTTON420-2476', 'pc')
+  const p = await ow.playerStats('FATCOTTON420#2476', 'pc')
 
-  assert.equal(p.name, 'FATCOTTON420-2476')
+  assert.equal(p.name, 'FATCOTTON420#2476')
+  assert.equal(p.nameEscaped, 'FATCOTTON420-2476')
   assert.equal(p.platform, 'pc')
 
   assert(p.stats.endorsementLevel > 0)
