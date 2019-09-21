@@ -40,12 +40,12 @@ const ow = oversmash()
 
 // Get basic details about a user, including their platform accounts.
 //
-ow.player('bob-12345').then(player => {
+ow.player('bob#12345').then(player => {
   console.log(player)
 })
 
 // Output:
-// { name: 'bob-12345',
+// { name: 'bob#12345',
 //   accounts:
 //    [ { level: 440,
 //        portrait: 'https://blzgdapipro-a.akamaihd.net/game/unlocks/xyz.png',
@@ -55,16 +55,16 @@ ow.player('bob-12345').then(player => {
 // Get detailed stats about a user, including
 // achievements unlocked, per-career and per-hero stats, and their
 // current competitive rank
-ow.playerStats('bob-12345', 'pc').then(player => {
+ow.playerStats('bob#12345', 'pc').then(player => {
   console.log(player)
 })
 
 // Output:
-// { name: 'bob-12345',
+// { name: 'bob#12345',
 //   region: 'us',
 //   platform: 'pc',
 //   stats:
-//    { competitiveRank: 3700,
+//    { competitiveRank: { support: 1234, tank: 1234, damage: 1234 },
 //      achievements:
 //       [ { name: 'centenary', achieved: true },
 //         { name: 'level_10', achieved: true },
@@ -138,7 +138,7 @@ The following options are configurable.
 ## Debugging
 
 `oversmash` uses [debug](https://github.com/visionmedia/debug). Run your code calling oversmash with
-`DEBUG=oversmash` to enable debug logging
+`DEBUG=oversmash:*` to enable debug logging
 
 ## Stuff 🐝 🐝 🐝
 
