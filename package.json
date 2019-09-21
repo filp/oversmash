@@ -15,7 +15,8 @@
   ],
   "scripts": {
     "start": "babel-node lib/index.js",
-    "test": "DEBUG=oversmash babel-node tests/test_oversmash.js",
+    "test": "DEBUG=oversmash:* babel-node tests/test_oversmash.js",
+    "snapshot": "DEBUG=oversmash:snapshot babel-node tests/data_snapshot.js",
     "build": "rm -rf ./build && babel lib -d build",
     "prepublish": "npm run build"
   },
@@ -30,12 +31,14 @@
   },
   "devDependencies": {
     "babel-cli": "^6.11.4",
+    "babel-core": "^6.18.2",
     "babel-preset-node6": "^11.0.0",
     "babel-preset-stage-3": "^6.17.0",
-    "babel-core": "^6.18.2",
     "eslint": "^3.12.0",
     "eslint-config-standard": "^6.2.1",
     "eslint-plugin-promise": "^3.4.0",
-    "eslint-plugin-standard": "^2.0.1"
+    "eslint-plugin-standard": "^2.0.1",
+    "object-path": "^0.11.4",
+    "traverse": "^0.6.6"
   }
 }
