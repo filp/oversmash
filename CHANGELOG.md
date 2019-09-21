@@ -1,3 +1,10 @@
+# 1.5.1
+
+1.5.1 
+
+- Fixes issue with some hero stat values being `null` incorrectly, due to an error in value normalization in the scraper
+- Reshuffled debug logging around. New `DEBUG=` values are `oversmash:*` for all logs, or `oversmash:scraper`, `oversmash:main`, and `oversmash:snapshot` respectively.
+
 # 1.5.0
 
 1.5.0
