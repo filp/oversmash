@@ -65,6 +65,8 @@ ow.playerStats('bob#12345', 'pc').then(player => {
 //   platform: 'pc',
 //   stats:
 //    { competitiveRank: { support: 1234, tank: 1234, damage: 1234 },
+//      endorsementLevel: 3,
+//      gamesWon: 2500,
 //      achievements:
 //       [ { name: 'centenary', achieved: true },
 //         { name: 'level_10', achieved: true },
