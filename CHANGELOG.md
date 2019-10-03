@@ -1,3 +1,9 @@
+# 1.5.3
+
+1.5.3
+
+- Fixes a bug where users who had not completed all placements for the season could have incorrect or invalid role rank values
+
 # 1.5.2
 
 1.5.2
