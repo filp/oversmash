@@ -21,23 +21,25 @@
     "prepublish": "npm run build"
   },
   "dependencies": {
-    "camelcase": "^4.1.0",
-    "cheerio": "^0.22.0",
-    "debug": "^2.6.2",
-    "no-case": "^2.3.1",
-    "request": "^2.81.0",
-    "request-promise": "^4.1.1",
-    "url-join": "^1.1.0"
+    "camelcase": "^5.3.1",
+    "cheerio": "^1.0.0-rc.3",
+    "debug": "^4.1.1",
+    "no-case": "^2.3.2",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.4",
+    "url-join": "^4.0.1"
   },
   "devDependencies": {
-    "babel-cli": "^6.11.4",
-    "babel-core": "^6.18.2",
-    "babel-preset-node6": "^11.0.0",
-    "babel-preset-stage-3": "^6.17.0",
-    "eslint": "^3.12.0",
-    "eslint-config-standard": "^6.2.1",
-    "eslint-plugin-promise": "^3.4.0",
-    "eslint-plugin-standard": "^2.0.1",
+    "@babel/cli": "^7.6.2",
+    "@babel/core": "^7.6.2",
+    "@babel/node": "^7.6.2",
+    "@babel/preset-env": "^7.6.2",
+    "eslint": "^6.5.1",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
     "object-path": "^0.11.4",
     "traverse": "^0.6.6"
   }
