@@ -40,10 +40,10 @@ function compareToSnapshot (snapshot, data) {
 async function testPlayerProfile (ow, snapshot) {
   const p = await ow.player('FATCOTTON420#2476')
 
-  assert.equal(p.name, 'FATCOTTON420#2476')
-  assert.equal(p.nameEscaped, 'FATCOTTON420-2476')
-  assert.equal(p.nameEscapedUrl, 'FATCOTTON420%232476')
-  assert.equal(p.accounts.length, 1)
+  assert.strictEqual(p.name, 'FATCOTTON420#2476')
+  assert.strictEqual(p.nameEscaped, 'FATCOTTON420-2476')
+  assert.strictEqual(p.nameEscapedUrl, 'FATCOTTON420%232476')
+  assert.strictEqual(p.accounts.length, 1)
 
   compareToSnapshot(snapshot, p)
 }
@@ -51,9 +51,9 @@ async function testPlayerProfile (ow, snapshot) {
 async function testPlayerStats (ow, snapshot) {
   const p = await ow.playerStats('FATCOTTON420#2476', 'pc')
 
-  assert.equal(p.name, 'FATCOTTON420#2476')
-  assert.equal(p.nameEscaped, 'FATCOTTON420-2476')
-  assert.equal(p.platform, 'pc')
+  assert.strictEqual(p.name, 'FATCOTTON420#2476')
+  assert.strictEqual(p.nameEscaped, 'FATCOTTON420-2476')
+  assert.strictEqual(p.platform, 'pc')
 
   assert(p.stats.endorsementLevel > 0)
   assert(p.stats.gamesWon > 2000)
@@ -63,14 +63,27 @@ async function testPlayerStats (ow, snapshot) {
   assert(p.stats.competitiveRank.support > 0)
 
   // Make sure diacritics replacement is working as intended:
-  assert(p.stats.quickplay.lucio.combat.all_damage_done > 0)
+  assert(p.stats.quickplay.lucio.combat.allDamageDone > 0)
 
   compareToSnapshot(snapshot, p)
 }
 
-async function runTests () {
-  const ow = oversmash()
+function testOptions (ow) {
+  assert.strictEqual(ow.options.requestOptions.headers['User-Agent'], 'oversmash tests')
+  assert.strictEqual(ow.options.requestOptions.baseUrl, 'https://playoverwatch.com/en-us')
+}
 
+async function runTests () {
+  const ow = oversmash({
+    normalizeNamesAs: 'camel',
+    requestOptions: {
+      headers: {
+        'User-Agent': 'oversmash tests'
+      }
+    }
+  })
+
+  testOptions(ow)
   await testPlayerProfile(ow, await loadSnapshot('profile'))
   await testPlayerStats(ow, await loadSnapshot('stats'))
 }

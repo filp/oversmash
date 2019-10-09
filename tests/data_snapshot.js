@@ -10,7 +10,7 @@ async function captureSnapshots (ow) {
   await writeFileAsync('./tests/snapshots/stats.json', JSON.stringify(await ow.playerStats(account, 'pc')))
 }
 
-captureSnapshots(oversmash())
+captureSnapshots(oversmash({ normalizeNamesAs: 'camel' }))
   .then(() => {
     console.log('captured snapshots!')
   })

@@ -1,3 +1,16 @@
+# 1.6.0
+
+- Fixes a bug where if any requestOptions were set, the entire default object would be replaced instead
+  of merged, and thus the default `baseUrl` would have to be reset
+- Correctly respects `normalizeNames` for `competitiveRank`, `endorsementLevel`, etc (now correctly `snake_cased` when appropriate)
+- Achievement names are no longer affected by `normalizeNames`, and always `snake_cased`
+- Resolved configuration options are now exposed read-only under the main oversmash object under `options`
+
+  ```js
+  const ow = oversmash({ percentsAsInts: true })
+  console.log(ow.options.percentsAsInts) # => true
+  ```
+
 # 1.5.3
 
 1.5.3

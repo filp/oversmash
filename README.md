@@ -103,7 +103,7 @@ The following options are configurable.
 
 ```js
 {
-  // Convert things like achievement names to snake_case
+  // Convert things like stat group names to snake_case (e.g ana.awards.medalsBronze vs ana.awards.medals_bronze)
   normalizeNames: true,
 
   // When set to snake, names are normalized as snake_case; when set to camel,
