@@ -28,11 +28,11 @@ function compareToSnapshot (snapshot, data) {
     }
 
     if (t !== ct) {
-      log(`type-diverged(${path}): ${t} !== ${ct}`)
+      log(`type-diverged(${path}): ${t} !== ${ct} (new !== old)`)
     }
 
     if (node !== compareTo) {
-      log(`diverged(${path}): ${node} !== ${compareTo}`)
+      log(`diverged(${path}): ${node} !== ${compareTo} (new !== old)`)
     }
   })
 }
