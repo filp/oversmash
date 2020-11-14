@@ -38,32 +38,34 @@ function compareToSnapshot (snapshot, data) {
 }
 
 async function testPlayerProfile (ow, snapshot) {
-  const p = await ow.player('FATCOTTON420#2476')
+  const p = await ow.player('adara#21451')
 
-  assert.strictEqual(p.name, 'FATCOTTON420#2476')
-  assert.strictEqual(p.nameEscaped, 'FATCOTTON420-2476')
-  assert.strictEqual(p.nameEscapedUrl, 'FATCOTTON420%232476')
+  assert.strictEqual(p.name, 'adara#21451')
+  assert.strictEqual(p.nameEscaped, 'adara-21451')
+  assert.strictEqual(p.nameEscapedUrl, 'adara%2321451')
   assert.strictEqual(p.accounts.length, 1)
 
   compareToSnapshot(snapshot, p)
 }
 
 async function testPlayerStats (ow, snapshot) {
-  const p = await ow.playerStats('FATCOTTON420#2476', 'pc')
+  const p = await ow.playerStats('adara#21451', 'pc')
 
-  assert.strictEqual(p.name, 'FATCOTTON420#2476')
-  assert.strictEqual(p.nameEscaped, 'FATCOTTON420-2476')
+  assert.strictEqual(p.name, 'adara#21451')
+  assert.strictEqual(p.nameEscaped, 'adara-21451')
   assert.strictEqual(p.platform, 'pc')
 
-  assert(p.stats.endorsementLevel > 0)
-  assert(p.stats.gamesWon > 2000)
+  assert(p.stats.endorsementLevel > 0, 'expected endorsement level to be above zero')
+  assert(p.stats.gamesWon > 2000, 'expected games won to be a number above the given value')
 
-  assert(p.stats.competitiveRank.tank > 0)
-  assert(p.stats.competitiveRank.damage > 0)
-  assert(p.stats.competitiveRank.support > 0)
+  const oneRoleMatched = ['tank', 'damage', 'support'].some(role => {
+    return p.stats.competitiveRank[role] > 0
+  })
+
+  assert(oneRoleMatched, 'no competitive rank found for any role - missing placements?')
 
   // Make sure diacritics replacement is working as intended:
-  assert(p.stats.quickplay.lucio.combat.allDamageDone > 0)
+  assert(p.stats.quickplay.lucio.combat.allDamageDone > 0, 'failed to match stat for lucio, diacritics replacement might be broken')
 
   compareToSnapshot(snapshot, p)
 }
