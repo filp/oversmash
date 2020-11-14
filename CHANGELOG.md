@@ -1,3 +1,10 @@
+# 1.6.1
+
+- Updates dependencies to resolve security issues, mostly affecting devDependencies (e.g `object-path`)
+- Updates tests to be more resilient to cases where the test target account hasn't completed placements for all roles yet
+- Replace the unused `displayName` for accounts with `name` and `nameEscaped`, mirroring the top-level properties
+- Add `id` under the `accounts`
+
 # 1.6.0
 
 - Fixes a bug where if any requestOptions were set, the entire default object would be replaced instead
