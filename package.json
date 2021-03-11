@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "camelcase": "^5.3.1",
-    "cheerio": "^1.0.0-rc.3",
+    "cheerio": "^1.0.0-rc.5",
     "debug": "^4.1.1",
     "no-case": "^2.3.2",
     "request": "^2.88.0",
@@ -30,17 +30,12 @@
     "url-join": "^4.0.1"
   },
   "devDependencies": {
-    "@babel/cli": "^7.12.1",
-    "@babel/core": "^7.6.2",
-    "@babel/node": "^7.6.2",
-    "@babel/preset-env": "^7.6.2",
-    "eslint": "^6.5.1",
-    "eslint-config-standard": "^14.1.0",
-    "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-node": "^10.0.0",
-    "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.1",
+    "@babel/cli": "^7.13.10",
+    "@babel/core": "^7.13.10",
+    "@babel/node": "^7.13.10",
+    "@babel/preset-env": "^7.13.10",
     "object-path": "^0.11.5",
+    "standard": "^16.0.3",
     "traverse": "^0.6.6"
   }
 }
