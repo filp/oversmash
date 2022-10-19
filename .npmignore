@@ -1,1 +1,3 @@
-lib/
+/src/
+/tests/
+.eslintrc.js

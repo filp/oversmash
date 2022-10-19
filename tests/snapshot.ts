@@ -1,5 +1,5 @@
 import fs from 'fs';
-import oversmash from '../lib';
+import oversmash from '../src/index';
 
 // Picked top player in overbuff, if this is you and you'd rather not be here,
 // please send me a message!

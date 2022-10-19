@@ -1,5 +1,5 @@
 import assert from 'assert';
-import oversmash from '../lib';
+import oversmash from '../src';
 import { promisify } from 'util';
 import { readFile } from 'fs';
 import objectPath from 'object-path';
@@ -10,7 +10,7 @@ const log = debug('oversmash:snapshot');
 const readFileAsync = promisify(readFile);
 
 async function loadSnapshot(name) {
-  const data = await readFileAsync(`./tests/snapshots/${name}.json`);
+  const data = await readFileAsync(`./tests/snapshots/${name}.json`, 'utf-8');
   return JSON.parse(data);
 }
 

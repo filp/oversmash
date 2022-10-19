@@ -1,10 +1,15 @@
-import cheerio from 'cheerio';
+import cheerio, { type AnyNode } from 'cheerio';
 import debug from 'debug';
-import noCase from 'no-case';
+import { noCase } from 'no-case';
 import camelCase from 'camelcase';
 
 const log = debug('oversmash:scraper');
 const careerTypes = ['quickplay', 'competitive'];
+
+type Achievement = {
+  name: string;
+  achieved: boolean;
+};
 
 // A map of strings used to rename stat groups to something easier
 // to use/read. Keep in mind stat group names are lowercased before
@@ -56,7 +61,7 @@ const finders = {
 // through this method
 function normalizeKeyName(options, name) {
   if (options.normalizeNames) {
-    let newName = noCase(name.replace("'", ''), null, '_');
+    let newName = noCase(name.replace("'", ''), { delimiter: '_' });
     const diacMatch = newName.match(lazyDiacriticsRegex);
 
     // Replace diacritics with their ascii equivalent (e.g ö -> o)
@@ -206,11 +211,11 @@ function extractCompetitiveRanks(options, p) {
   const roleRanks = p('.competitive-rank .competitive-rank-role');
   const roles = { tank: null, damage: null, support: null };
 
-  roleRanks.each(function () {
+  roleRanks.each(function (this: AnyNode) {
     const $el = cheerio(this);
     const roleText = $el
       .find('.competitive-rank-tier-tooltip')
-      .data('ow-tooltip-text');
+      .data('ow-tooltip-text') as string;
     const level = $el.find('.competitive-rank-level').text();
 
     // 'Damage Skill Rating' -> 'Damage' -> 'damage'
@@ -237,7 +242,7 @@ function extractGamesWon(options, p) {
 }
 
 function gatherAchievements(options, p) {
-  const achievements = [];
+  const achievements: Achievement[] = [];
 
   p('.achievement-card').each((i, e) => {
     const elem = p(e);
@@ -251,7 +256,10 @@ function gatherAchievements(options, p) {
 }
 
 export function scrapePlayerStats(options, html) {
-  const stats = {};
+  const stats: {
+    achievements?: Achievement[];
+  } = {};
+
   const p = cheerio.load(html);
 
   stats[normalizeKeyName(options, 'competitive_rank')] =

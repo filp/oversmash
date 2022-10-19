@@ -22,11 +22,22 @@ const defaultOptions = {
   },
 };
 
+type DeepPartial<T> = T extends object
+  ? {
+      [P in keyof T]?: DeepPartial<T[P]>;
+    }
+  : T;
+
+type OversmashOptions = DeepPartial<typeof defaultOptions>;
+
 function checkValidName(name) {
   if (name.indexOf('#') === -1) {
     throw new Error('Invalid player name, could not find a # sign');
   }
 }
+
+const urlJoin = (base: string, ...added: string[]) =>
+  [base, ...added].join('/');
 
 // Uses an internal Blizzard API to retrieve basic details about a player,
 // through their Blizzard account ID. The API returns basic details about
@@ -92,7 +103,7 @@ async function findPlayerStats(req, options, platform, name) {
 
 // Accepts an options object (taking precedence over defaultOptions)
 // and returns a new oversmash object
-export default function main(callerOptions = {}) {
+export default function main(callerOptions: OversmashOptions = {}) {
   const callerOptionsWithRequestOptions = {
     ...callerOptions,
 

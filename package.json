@@ -4,7 +4,8 @@
   "license": "MIT",
   "homepage": "https://github.com/filp/oversmash",
   "description": "API wrapper for Blizzard's Overwatch player data",
-  "main": "./build/index.js",
+  "main": "./build/src/index.js",
+  "types": "./build/src/index.d.ts",
   "keywords": [
     "overwatch",
     "gaming",
@@ -15,31 +16,33 @@
   ],
   "scripts": {
     "start": "babel-node lib/index.js",
-    "test": "DEBUG=oversmash:* babel-node tests/test_oversmash.js",
-    "snapshot": "DEBUG=oversmash:snapshot babel-node tests/data_snapshot.js",
-    "build": "rm -rf ./build && babel lib -d build",
-    "prepublish": "npm run build"
+    "test": "DEBUG=oversmash:* ts-node tests/suite.ts",
+    "snapshot": "DEBUG=oversmash:snapshot ts-node tests/snapshot.ts",
+    "build": "tsc -b",
+    "lint": "eslint .",
+    "prepack": "yarn lint && yarn test && yarn build"
   },
   "dependencies": {
-    "camelcase": "^7.0.0",
+    "camelcase": "^6.0.0",
     "cheerio": "^1.0.0-rc.5",
     "debug": "^4.1.1",
     "no-case": "^3.0.4",
     "request": "^2.88.0",
-    "request-promise": "^4.2.4",
-    "url-join": "^5.0.0"
+    "request-promise": "^4.2.4"
   },
   "devDependencies": {
-    "@babel/cli": "^7.13.10",
-    "@babel/core": "^7.13.10",
-    "@babel/node": "^7.13.10",
-    "@babel/preset-env": "^7.13.10",
+    "@types/debug": "^4.1.7",
+    "@types/node": "^18.11.2",
+    "@types/object-path": "^0.11.1",
+    "@types/traverse": "^0.6.32",
     "eslint": "^8.25.0",
     "eslint-config-prettier": "^8.5.0",
+    "eslint-import-resolver-typescript": "^3.5.1",
+    "eslint-plugin-import": "^2.26.0",
     "object-path": "^0.11.5",
     "prettier": "^2.7.1",
-    "standard": "^17.0.0",
     "traverse": "^0.6.6",
+    "ts-node": "^10.9.1",
     "typescript": "^4.8.4"
   }
 }
