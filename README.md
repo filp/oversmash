@@ -23,13 +23,15 @@ Please also keep in mind there is no builtin rate-limiting support, so it's on y
 
 ## Usage
 
-Install through `npm`:
+Install through `npm` or `yarn`:
 
 ```shell
-$ npm install --save oversmash
+$ yarn add oversmash
+# or
+$ npm i -S oversmash
 ```
 
-Example:
+### Example:
 
 ```js
 import oversmash from 'oversmash'
