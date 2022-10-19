@@ -2,7 +2,7 @@ import util from 'util';
 import fetch from 'node-fetch';
 import debug from 'debug';
 
-import { scrapePlayerStats } from './scraper';
+import { scrapePlayerStats } from './scraper.js';
 
 const log = debug('oversmash:main');
 

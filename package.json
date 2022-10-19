@@ -5,6 +5,7 @@
   "homepage": "https://github.com/filp/oversmash",
   "description": "API wrapper for Blizzard's Overwatch player data",
   "main": "./build/src/index.js",
+  "type": "module",
   "types": "./build/src/index.d.ts",
   "keywords": [
     "overwatch",

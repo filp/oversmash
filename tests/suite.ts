@@ -4,7 +4,7 @@ import { readFile } from 'fs';
 import objectPath from 'object-path';
 import traverse from 'traverse';
 import debug from 'debug';
-import oversmash from '../src';
+import oversmash from '../src/index.js';
 
 const log = debug('oversmash:snapshot');
 const readFileAsync = promisify(readFile);
