@@ -1,9 +1,6 @@
 {
-  "extends": "standard",
+  "extends": "prettier",
   "env": {
     "node": true
-  },
-  "rules": {
-    "quote-props": [2, "consistent"]
   }
 }

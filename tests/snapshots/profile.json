@@ -1,1 +1,16 @@
-{"name":"adara#21451","nameEscaped":"adara-21451","nameEscapedUrl":"adara%2321451","accounts":[{"id":454410535,"level":1091,"portrait":"https://d1u1mce87gyfbn.cloudfront.net/game/unlocks/0x025000000000139C.png","name":"adara#21451","nameEscaped":"adara-21451","platform":"pc","public":true}]}
+{
+  "name": "adara#21451",
+  "nameEscaped": "adara-21451",
+  "nameEscapedUrl": "adara%2321451",
+  "accounts": [
+    {
+      "id": 454410535,
+      "level": 1091,
+      "portrait": "https://d1u1mce87gyfbn.cloudfront.net/game/unlocks/0x025000000000139C.png",
+      "name": "adara#21451",
+      "nameEscaped": "adara-21451",
+      "platform": "pc",
+      "public": true
+    }
+  ]
+}
