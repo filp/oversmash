@@ -1,8 +1,14 @@
 # oversmash [![npm version](https://badge.fury.io/js/oversmash.svg)](https://badge.fury.io/js/oversmash)
 
+# Important note:
+
+As of October 2022, Blizzard has disabled the pages and APIs used by Oversmash to capture player data, due to the release of Overwatch 2 (replacing Overwatch 1). This library will be updated with a `2.x` release accordingly once Blizzard releases new information on new player profiles and APIs.
+
+---
+
 API wrapper for Blizzard's Overwatch player stats. Uses promises.
 
-Blizzard does not expose an official API, so this library relies partially on scraping, using [cheerio](https://github.com/cheeriojs/cheerio).  
+Blizzard does not expose an official API, so this library relies partially on scraping, using [cheerio](https://github.com/cheeriojs/cheerio).
 
 Please also keep in mind there is no builtin rate-limiting support, so it's on you to use the library responsibly.
 
@@ -34,17 +40,17 @@ $ npm i -S oversmash
 ### Example:
 
 ```js
-import oversmash from 'oversmash'
+import oversmash from 'oversmash';
 
 // Create a new oversmash object. `oversmash()` accepts an options
 // object (see below)
-const ow = oversmash()
+const ow = oversmash();
 
 // Get basic details about a user, including their platform accounts.
 //
-ow.player('bob#12345').then(player => {
-  console.log(player)
-})
+ow.player('bob#12345').then((player) => {
+  console.log(player);
+});
 
 // Output:
 // { name: 'bob#12345',
@@ -57,9 +63,9 @@ ow.player('bob#12345').then(player => {
 // Get detailed stats about a user, including
 // achievements unlocked, per-career and per-hero stats, and their
 // current competitive rank
-ow.playerStats('bob#12345', 'pc').then(player => {
-  console.log(player)
-})
+ow.playerStats('bob#12345', 'pc').then((player) => {
+  console.log(player);
+});
 
 // Output:
 // { name: 'bob#12345',
@@ -99,6 +105,7 @@ ow.playerStats('bob#12345', 'pc').then(player => {
 //               damage_done_most_in_game: 17491,
 //   /* ... etc ... */
 ```
+
 ### `oversmash()` options
 
 The following options are configurable.
@@ -128,16 +135,12 @@ The following options are configurable.
   // Default platform if none is specified in the options
   defaultPlatform: 'pc',
 
-  requestOptions: {
-    baseURL: 'https://playoverwatch.com/en-us',
-    headers: {
-      'User-Agent': 'https://github.com/filp/oversmash (hi jeff)'
-    }
+  baseURL: 'https://playoverwatch.com/en-us',
+  headers: {
+    'User-Agent': 'https://github.com/filp/oversmash (hi jeff)'
   }
 }
 ```
-
-`requestOptions` are passed directly to `request.defaults` on [request](https://github.com/request/request)
 
 ## Debugging
 
