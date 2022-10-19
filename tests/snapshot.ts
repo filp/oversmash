@@ -17,6 +17,7 @@ async function captureSnapshots(ow) {
   );
 }
 
-captureSnapshots(oversmash({ normalizeNamesAs: 'camel' })).then(() => {
+void captureSnapshots(oversmash({ normalizeNamesAs: 'camel' })).then(() => {
+  // eslint-disable-next-line no-console
   console.log('captured snapshots!');
 });

@@ -1,10 +1,10 @@
 import assert from 'assert';
-import oversmash from '../src';
 import { promisify } from 'util';
 import { readFile } from 'fs';
 import objectPath from 'object-path';
 import traverse from 'traverse';
 import debug from 'debug';
+import oversmash from '../src';
 
 const log = debug('oversmash:snapshot');
 const readFileAsync = promisify(readFile);
@@ -65,9 +65,9 @@ async function testPlayerStats(ow, snapshot) {
     'expected games won to be a number above the given value'
   );
 
-  const oneRoleMatched = ['tank', 'damage', 'support'].some((role) => {
-    return p.stats.competitiveRank[role] > 0;
-  });
+  const oneRoleMatched = ['tank', 'damage', 'support'].some(
+    (role) => p.stats.competitiveRank[role] > 0
+  );
 
   assert(
     oneRoleMatched,
@@ -97,10 +97,8 @@ function testOptions(ow) {
 async function runTests() {
   const ow = oversmash({
     normalizeNamesAs: 'camel',
-    requestOptions: {
-      headers: {
-        'User-Agent': 'oversmash tests',
-      },
+    headers: {
+      'User-Agent': 'oversmash tests',
     },
   });
 
@@ -109,6 +107,7 @@ async function runTests() {
   await testPlayerStats(ow, await loadSnapshot('stats'));
 }
 
-runTests().then(() => {
+void runTests().then(() => {
+  // eslint-disable-next-line no-console
   console.log('OK!');
 });
